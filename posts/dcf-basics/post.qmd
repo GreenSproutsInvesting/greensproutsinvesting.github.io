@@ -233,25 +233,19 @@ For each company, we will use current financial data and make reasonable assumpt
 **Company Overview:** Who doesn't know Coca-Cola? Coca-cola is a global beverage leader with one of the strongest brand portfolios in the world.
 
 **Financial Data:**
+
 - Current FCF: 4,741 million
 - Shares Outstanding: 4,309 million
 - Current Stock Price: ~$73
 
 **Model Assumptions:**
+
 - Growth Rate (r): 4% - Quite conservative growth reflecting mature market but international expansion opportunities
 - Discount Rate (d): 5% - Low rate reflecting stable cash flows and strong competitive moat. It is probably unrealistic to ask much higher returns from such a company
 - Perpetual Growth (g): 3% - Again quite conservative
 - Projection Period: 10 years - Standard projection range
 
-**Valuation Result:**
-
-```{python}
-# KO DCF Valuation
-ko_fair_value = dcf_valuation(FCF_0=4741, shares=4309, r=0.04, d=0.05, g=0.03)
-print(f"Fair Value: ${ko_fair_value:.2f}")
-print(f"Current Price: $73.00")
-print(f"Upside/Downside: {((ko_fair_value/73)-1)*100:.1f}%")
-```
+**Valuation Result:** $62.43 per share
 
 **Analysis:** The model suggests KO is currently trading about 17% above its fair value at $73. However, not long ago the stock was trading around $58, which would have represented an undervaluation according to this model. This demonstrates that quality companies do occasionally trade at or below fair value, though they typically command a premium due to their stability and moat. It is also true that the obtained return is not extraordinary, but good enough to give stability to a portfolio.
 
@@ -260,25 +254,19 @@ print(f"Upside/Downside: {((ko_fair_value/73)-1)*100:.1f}%")
 **Company Overview:** Mondelez is a global snacking powerhouse. It owns many iconic brands like Oreo or Toblerone. Again, great brand power but I would say not at the level of Coca-Cola.
 
 **Financial Data:**
+
 - Current FCF: 3,523 million
 - Shares Outstanding: 1,347 million
 - Current Stock Price: ~$60
 
 **Model Assumptions:**
+
 - Growth Rate (r): 4.5% - Slightly higher than KO, reflecting growth in emerging markets and snacking trends
 - Discount Rate (d): 5.5% - Slightly higher than KO due to more competitive snacking category
 - Perpetual Growth (g): 3% - Standard conservative value
 - Projection Period: 10 years - Standard range
 
-**Valuation Result:**
-
-```{python}
-# MDLZ DCF Valuation
-mdlz_fair_value = dcf_valuation(FCF_0=3523, shares=1347, r=0.045, d=0.055, g=0.03)
-print(f"Fair Value: ${mdlz_fair_value:.2f}")
-print(f"Current Price: $60.00")
-print(f"Upside/Downside: {((mdlz_fair_value/60)-1)*100:.1f}%")
-```
+**Valuation Result:** $124.22 per share
 
 **Analysis:** Interestingly, the model suggests MDLZ is significantly undervalued at its current price of ~$60, trading at roughly half its estimated fair value. This large gap could indicate either that our assumptions are too optimistic, or that the market is undervaluing MDLZ's cash generation potential. Recent developments in the health/medical domain, such as Ozempic, may affect future sales according to some analysts. However, the snacking category seems to have strong tailwinds, so growth could be even larger. We shall see how this valuation fares once we start adding complexity to the analysis methodology. Maybe the FCF estimation is too enthusiastic?
 
@@ -287,25 +275,19 @@ print(f"Upside/Downside: {((mdlz_fair_value/60)-1)*100:.1f}%")
 **Company Overview:** LyondellBasell is one of the world's largest plastics, chemicals, and refining companies. As a cyclical business, its cash flows can swing enormously.
 
 **Financial Data:**
+
 - Current FCF: 1,980 million
 - Shares Outstanding: 324 million
 - Current Stock Price: ~$44.80
 
 **Model Assumptions:**
+
 - Growth Rate (r): 3% - Conservative, reflecting cyclical nature and mature industry
 - Discount Rate (d): 12% - Higher rate reflecting cyclicality, commodity price risk, and the higher returns expected from riskier investments
 - Perpetual Growth (g): 2% - Very conservative for cyclical business
 - Projection Period: 10 years - Standard range
 
-**Valuation Result:**
-
-```{python}
-# LYB DCF Valuation
-lyb_fair_value = dcf_valuation(FCF_0=1980, shares=324, r=0.03, d=0.12, g=0.02)
-print(f"Fair Value: ${lyb_fair_value:.2f}")
-print(f"Current Price: $44.80")
-print(f"Upside/Downside: {((lyb_fair_value/44.8)-1)*100:.1f}%")
-```
+**Valuation Result:** $66.91 per share
 
 **Analysis:** The model suggests LYB is moderately undervalued at $44.80, trading at about 67% of its estimated fair value. However, this analysis highlights important limitations. The perpetuity growth method may not be the most suitable one to compute the terminal value. Personally, I would not hold a cyclical company forever - I typically invest in them during the low part of the cycle and sell during peaks. For this investment strategy, the exit multiple method would be more appropriate for estimating terminal value, as it better reflects the reality of eventually selling the position rather than holding indefinitely.
 
