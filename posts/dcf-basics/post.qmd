@@ -1,6 +1,6 @@
 ---
 title: "Understanding DCF Valuation: The Basics"
-author: "Your Name"
+author: "Green Sprouts Investing"
 date: today
 format:
   html:

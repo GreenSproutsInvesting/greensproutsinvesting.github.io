@@ -6,8 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Your Name">
-<meta name="dcterms.date" content="2025-11-24">
+<meta name="author" content="Green Sprouts Investing">
+<meta name="dcterms.date" content="2025-11-25">
 
 <title>Understanding DCF Valuation: The Basics – Green Sprouts Investing</title>
 <style>
@@ -74,7 +74,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting-b663525e4b92bb903b2199e2d401bf36.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-c12b7d9d430a1356dc99012a494a9142.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-45ee0185fb944c22176e9afcab3f0029.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -188,14 +188,14 @@ window.Quarto = {
       <div>
       <div class="quarto-title-meta-heading">Author</div>
       <div class="quarto-title-meta-contents">
-               <p>Your Name </p>
+               <p>Green Sprouts Investing </p>
             </div>
     </div>
       
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">November 24, 2025</p>
+        <p class="date">November 25, 2025</p>
       </div>
     </div>
     
@@ -295,7 +295,7 @@ window.Quarto = {
 <h2 class="anchored" data-anchor-id="implementation-in-python">Implementation in Python</h2>
 <p>Now that we’ve established the mathematical foundation, let’s implement these formulas in Python. We’ll build up the model step-by-step, creating functions for each component.</p>
 <p>First, let’s implement the basic building blocks - projecting future FCF and calculating present values:</p>
-<div id="320099f5" class="cell" data-execution_count="1">
+<div id="97e923f5" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> estimate_future_FCF(FCF_0, r, n):</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co">    Estimate future free cash flow based on current FCF and growth rate.</span></span>
@@ -316,7 +316,7 @@ window.Quarto = {
 <span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
 <span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> FCF_0 <span class="op">*</span> (<span class="dv">1</span> <span class="op">+</span> r)<span class="op">**</span>n</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="99598dad" class="cell" data-execution_count="2">
+<div id="6a0b4a60" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> present_value(fv, d, n):</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""</span></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co">    Calculate present value of a future cash flow.</span></span>
@@ -337,7 +337,7 @@ window.Quarto = {
 <span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
 <span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> fv <span class="op">/</span> (<span class="dv">1</span> <span class="op">+</span> d)<span class="op">**</span>n</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="48ef7e6e" class="cell" data-execution_count="3">
+<div id="294128bc" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> terminal_value(FCF_0, d, g):</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""</span></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co">    Calculate terminal value using perpetuity growth method.</span></span>
@@ -362,7 +362,7 @@ window.Quarto = {
 <span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
 <span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> FCF_0 <span class="op">/</span> (d <span class="op">-</span> g)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="00309542" class="cell" data-execution_count="4">
+<div id="29666f13" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> dcf_valuation(FCF_0: <span class="bu">float</span>, shares: <span class="bu">float</span>, r: <span class="bu">float</span>, d: <span class="bu">float</span>, g: <span class="bu">float</span>, N: <span class="bu">int</span> <span class="op">=</span> <span class="dv">10</span>) <span class="op">-&gt;</span> <span class="bu">float</span>:</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""</span></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co">    Compute DCF valuation per share using perpetuity growth method.</span></span>
@@ -442,7 +442,7 @@ window.Quarto = {
 <li>Perpetual Growth (g): 3% - Standard conservative value</li>
 <li>Projection Period: 10 years - Standard range</li>
 </ul>
-<p><strong>Valuation Result:</strong>: $124.22 per share</p>
+<p><strong>Valuation Result:</strong> $124.22 per share</p>
 <p><strong>Analysis:</strong> Interestingly, the model suggests MDLZ is significantly undervalued at its current price of ~$60, trading at roughly half its estimated fair value. This large gap could indicate either that our assumptions are too optimistic, or that the market is undervaluing MDLZ’s cash generation potential. Recent developments in the health/medical domain, such as Ozempic, may affect future sales according to some analysts. However, the snacking category seems to have strong tailwinds, so growth could be even larger. We shall see how this valuation fares once we start adding complexity to the analysis methodology. Maybe the FCF estimation is too enthusiastic?</p>
 </section>
 <section id="lyondellbasell-industries-lyb" class="level3">
