@@ -3,10 +3,11 @@ title: "Green Sprouts Investing"
 listing:
   contents: posts
   sort: "date desc"
-  type: default
-  categories: true
-  sort-ui: false
-  filter-ui: false
+  type: grid
+  categories: false
+  sort-ui: true
+  filter-ui: true
+  fields: [date, title, description, categories]
 page-layout: full
 title-block-banner: true
 ---

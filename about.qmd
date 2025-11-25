@@ -1,19 +1,18 @@
 ---
 title: "About"
-image: profile.jpg
+image: logo.png
 about:
-  template: jolla
-  links:
-    - icon: twitter
-      text: Twitter
-      href: https://twitter.com
-    - icon: linkedin
-      text: LinkedIn
-      href: https://linkedin.com
-    - icon: github
-      text: Github
-      href: https://github.com
-
+  template: solana
 ---
 
-About this blog
+I am working toward financial independence through dividend investing.
+My goal is to build a portfolio that provides the freedom to choose how I spend my time, without the constant pressure of relying solely on my job to provide for my family.
+
+My approach is straightforward: I study companies carefully, perform my own valuations, and only buy when there is a good margin of safety.
+Price is one of the pillars to achieve strong returns.
+I focus on dividend-paying stocks because they provide peace of mind through periodic income while I build ownership in quality businesses.
+Warren Buffett's philosophy resonates strongly with me.
+
+This blog is where I share my journey as I learn and grow as an investor.
+I hope to publish company analyses, valuation models, portfolio movements and reflections on what I am discovering along the way.
+I am a beginner at sharing publicly, but I believe documenting the process will help both me and others on a similar path.
