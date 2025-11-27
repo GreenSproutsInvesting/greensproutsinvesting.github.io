@@ -1,4 +1,10 @@
 /* css styles */
 p {
   text-align: justify;
+  line-height: 1.6;
+}
+
+pre {
+  border-radius: 5px;
+  padding: 1em;
 }
