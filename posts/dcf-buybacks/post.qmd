@@ -1,6 +1,6 @@
 ---
 title: "Discounted Cash Flows and the Effect of Buybacks"
-date: today
+date: December 3, 2025
 format:
   html:
     code-fold: false

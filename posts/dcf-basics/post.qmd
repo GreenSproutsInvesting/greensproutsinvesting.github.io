@@ -1,6 +1,6 @@
 ---
 title: "Understanding DCF Valuation: The Basics"
-date: today
+date: November 27, 2025
 format:
   html:
     code-fold: false
