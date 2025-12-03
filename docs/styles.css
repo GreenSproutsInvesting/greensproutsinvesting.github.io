@@ -1,5 +1,5 @@
 /* css styles */
-p {
+p, ul, ol {
   text-align: justify;
   line-height: 1.6;
 }

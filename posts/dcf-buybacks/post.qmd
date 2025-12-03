@@ -1,0 +1,207 @@
+---
+title: "Discounted Cash Flows and the Effect of Buybacks"
+date: today
+format:
+  html:
+    code-fold: false
+    toc: true
+    toc-depth: 2
+jupyter: python3
+---
+
+# Discounted Cash Flows and the Effect of Buybacks
+
+In the previous post, we explored the fundamentals of DCF (Discounted Cash Flow) valuation. We learned how to project future cash flows, discount them to present value, and calculate a terminal value using the perpetuity growth method.
+
+However, we identified an important limitation: the basic DCF model does not account for changes in share count over time. For companies that aggressively buy back their own shares, this can lead to significantly underestimated fair values. We will see that later.
+
+In this post, we will extend our DCF model to incorporate the effect of share buybacks (and conversely, share issuance). We will see how this adjustment can make a meaningful difference in valuation. Sometimes over 25%!
+
+## The Buyback Effect
+
+When a company buys back its own shares, something interesting happens: the total free cash flow might stay the same (or grow at its usual rate), but that cash flow is now divided among fewer shares.
+
+This means that **FCF per share grows faster than total FCF**.
+
+For example, imagine a company with:
+
+- Total FCF: $100 million
+- Shares outstanding: 10 million
+- FCF per share: $10
+
+Let's imagine that the company buys back 10% of its shares (1 million shares) and the total FCF stays the same. We would have:
+
+- Total FCF: still $100 million (assuming no growth)
+- Shares outstanding: 9 million
+- FCF per share: $11.11
+
+Note that the FCF per share has increased by 11%. That's a significant increase! Even though total FCF didn't grow at all!!
+
+The basic DCF model misses this effect entirely because it divides total enterprise value by the current share count, ignoring future buybacks.
+
+## Mathematical Framework
+
+To incorporate buybacks into our DCF model, we need to project FCF per share rather than total FCF.
+
+Let's start with how we typically project total FCF:
+
+$$FCF_{i+1} = FCF_i \cdot (1 + g_f)$$
+
+where $g_f$ is the growth rate for free cash flow.
+
+Similarly, we can project the number of shares:
+
+$$s_{i+1} = s_i \cdot (1 + g_s)$$
+
+where $g_s$ is the growth rate for shares outstanding. Note that $g_s$ is negative when there are buybacks and positive when shares are issued.
+
+Now, FCF per share in year $i+1$ is:
+
+$$FCFps_{i+1} = \frac{FCF_{i+1}}{s_{i+1}} = \frac{FCF_i \cdot (1 + g_f)}{s_i \cdot (1 + g_s)} = FCFps_i \cdot \frac{1 + g_f}{1 + g_s}$$
+
+This gives us an **effective growth rate** for FCF per share:
+
+$$g_{eff} = \frac{1 + g_f}{1 + g_s} - 1$$
+
+For example, with 5% FCF growth and -3% share reduction (buybacks):
+
+$$g_{eff} = \frac{1.05}{0.97} - 1 = 0.0825 \text{ or } 8.25\%$$
+
+The buybacks amplify the growth rate from 5% to 8.25%!
+
+## Implementation
+
+Here is a Python implementation of the functionality required to build a DCF-based valuation that takes into account buybacks. First, we need a function to compute the effective growth rate:
+
+```python
+def compute_effective_growth_rate(gf: float, gs: float) -> float:
+    """ Compute effective growth rate for FCF per share.
+    Args:
+        gf: Growth rate for free cash flow (e.g., 0.05 for 5%)
+        gs: Growth rate for shares outstanding (negative for buybacks, e.g., -0.03 for 3% reduction)
+
+    Returns:
+        Effective growth rate for FCF per share
+    """
+    return (1 + gf) / (1 + gs) - 1
+```
+
+Now we can modify our DCF valuation function (builds on top of the methods implemented in the previous post) to work with FCF per share and the effective growth rate:
+
+```python
+def dcf_valuation_with_buybacks(FCFps_0: float, gf: float, gs: float, d: float, gt: float, N: int = 10) -> float:
+    """
+    Compute DCF valuation per share accounting for buybacks/share issuance.
+    
+    Args:
+        FCFps_0: Current free cash flow per share
+        gf: Growth rate for total free cash flow (e.g., 0.05 for 5%)
+        gs: Growth rate for shares outstanding (negative for buybacks, e.g., -0.03 for 3% reduction)
+        d: Discount rate (e.g., 0.10 for 10%)
+        gt: Terminal growth rate for perpetuity calculation (e.g., 0.03 for 3%)
+        N: Number of years to project explicitly (default: 10)
+    
+    Returns:
+        Estimated fair value per share
+    """
+    geff = compute_effective_growth_rate(gf, gs)
+    pvs = [present_value(estimate_future_FCF(FCFps_0, geff, i+1), d, i+1) for i in range(N)]
+    PV = sum(pvs)
+    TV = present_value(terminal_value(estimate_future_FCF(FCFps_0, geff, N+1), d, gt), d, N)
+    return (PV + TV)
+```
+
+The key insight is that once we have $g_{eff}$, we can reuse our existing helper functions (`estimate_future_FCF`, `present_value`, `terminal_value`) — we just pass in FCF per share instead of total FCF!
+
+## Real-World Examples
+
+Let's apply our enhanced DCF model to three well-known companies with active buyback programs: Apple (AAPL), Visa (V), and McDonald's (MCD).
+
+For each company, we'll compare the valuation with and without accounting for buybacks.
+
+### Apple (AAPL)
+
+**Parameters:**
+
+- Current FCF: $109,000 million
+- Shares outstanding: 15,400 million
+- FCF per share: $7.08
+- FCF growth rate (gf): 5%
+- Share growth rate (gs): -3% (buybacks)
+- Discount rate: 10%
+- Terminal growth rate: 3%
+
+**Results:**
+
+- DCF without buybacks: **$121.97** per share
+- DCF with buybacks: **$158.08** per share
+- Current market price: **$278.85**
+- **Impact of buybacks: +29.6%**
+
+### Visa (V)
+
+**Parameters:**
+
+- Current FCF: $18,700 million
+- Shares outstanding: 2,030 million
+- FCF per share: $9.21
+- FCF growth rate (gf): 7%
+- Share growth rate (gs): -2.5% (buybacks)
+- Discount rate: 10%
+- Terminal growth rate: 3%
+
+**Results:**
+
+- DCF without buybacks: **$186.16** per share
+- DCF with buybacks: **$232.03** per share
+- Current market price: **$334.44**
+- **Impact of buybacks: +24.6%**
+
+### McDonald's (MCD)
+
+**Parameters:**
+
+- Current FCF: $6,670 million
+- Shares outstanding: 722 million
+- FCF per share: $9.24
+- FCF growth rate (gf): 7%
+- Share growth rate (gs): -1% (buybacks)
+- Discount rate: 10%
+- Terminal growth rate: 3%
+
+**Results:**
+
+- DCF without buybacks: **$186.70** per share
+- DCF with buybacks: **$203.57** per share
+- Current market price: **$312.40**
+- **Impact of buybacks: +9.0%**
+
+### Key Observations
+
+The impact of buybacks varies significantly:
+
+- Apple shows the largest effect (29.6%) due to its aggressive 3% annual buyback rate
+- Visa is close behind (24.6%) with a 2.5% buyback rate
+- McDonald's shows a smaller but still meaningful effect (9.0%) with a 1% buyback rate
+
+Even with buyback adjustments, all three companies appear overvalued compared to their DCF estimates. This is common for high-quality companies. The cause might be market overvaluation. But it could be that this valuation method is not suitable. In future post I will investigate this from a historical perspective. This is, given this valuation model, were these companies ever fairly priced? I would expect to see this only in market crashes, but we wille explore it in more detail in future posts.
+
+## Key Takeaways
+
+In this post, we extended the basic DCF valuation model to account for share buybacks and issuance. Here are the main points:
+
+1. **Buybacks amplify per-share growth**: When companies buy back shares, FCF per share grows faster than total FCF, even if the business itself isn't growing faster.
+2. **The math is elegant**: We can compute an effective growth rate $g_{eff} = \frac{1+g_f}{1+g_s} - 1$ that captures both FCF growth and share count changes.
+3. **The impact is significant**: In our examples, accounting for buybacks increased valuations by 9-30%, depending on the buyback rate.
+4. **Implementation is straightforward**: Once we have the effective growth rate, we can reuse our existing DCF machinery: just work with FCF per share instead of total FCF.
+5. **Valuation puzzles remain**: Even with buyback adjustments, high-quality companies often trade above DCF estimates. This raises interesting questions about market pricing and model assumptions.
+
+### Future Directions
+
+Several questions emerge from this analysis:
+
+- **Historical perspective**: Are quality companies always "expensive" by DCF standards, or do they periodically reach fair value during market downturns?
+- **Cyclical businesses**: DCF valuation is usually applied to high-quality business with durable competitive advantages where FCF projections can be made with some certainty. Can it be applied to other businesses with more volatile free cash flows?
+- **Sensitivity analysis**: Which parameters (discount rate, growth rates, terminal value) have the biggest impact on our valuations?
+
+We'll explore these topics in future posts.
