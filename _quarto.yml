@@ -4,9 +4,14 @@ project:
 
 website:
   title: "Green Sprouts Investing"
+  site-url: "https://greensproutsinvesting.github.io"
+  description: "Documenting my journey to financial independence via dividend investing"
   navbar:
+    logo: logo.png
     right:
       - about.qmd
+      - icon: rss
+        href: index.xml
 format:
   html:
     theme: cosmo
