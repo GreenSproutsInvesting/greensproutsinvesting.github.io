@@ -1,0 +1,295 @@
+---
+title: "DCF and the Exit Multiple Approach for Terminal Value"
+date: December 9, 2025
+format:
+  html:
+    code-fold: false
+    toc: true
+    toc-depth: 2
+jupyter: python3
+---
+
+## Introduction
+
+In our previous posts, we explored DCF valuation using the perpetuity growth method for terminal value. This approach assumes the company grows forever at some constant rate, which gives us:
+
+**Terminal Value = $FCF_{N+1} / (d - g_t)$**
+
+But there's another way to think about terminal value: **What would someone pay for this business at year N?**
+
+This is where the **exit multiple method** comes in. Instead of assuming perpetual growth, we estimate what the market would value the company at based on historical trading multiples. If a company has historically traded at 25x free cash flow, we might assume it will trade at a similar multiple in the future.
+
+**Terminal Value = $FCF_N \cdot Exit Multiple$**
+
+This method is particularly useful when:
+- You're skeptical about making 10+ year growth assumptions (it requires a great business with moat and durable competitive advantages)
+- You want to ground your valuation in observable market behavior
+- You're valuing cyclical companies where timing the exit matters
+
+In this post, we'll implement the exit multiple method, compare it to perpetuity growth, and explore why the two approaches can give very different results.
+
+## Key Valuation Definitions
+
+Before diving into the exit multiple method, we need to clarify some terms that are often confused (or at least I was confused about at some point). Understanding these distinctions is crucial for proper DCF valuation.
+
+We must distinguish between **Market-Observable Values** and **DCF Intrinsic Values**. Market observable values are based on published data. For example:
+
+- **Market Cap**, which is defined as Share Price × Shares Outstanding. This is the total value the market assigns to all equity. Market Cap is the same as **Equity Value** when we're talking about market prices. Important: this is NOT the same as Shareholder's Equity from the balance sheet (which is book value based on historical accounting).
+- **Net Debt**, defined as Total Debt - Cash & Cash Equivalents. This comes directly from the balance sheet and represents the company's net financial obligations.
+- **Enterprise Value (EV)**, defined as Market Cap + Net Debt. This is the total value of the operating business; what you'd need to pay to own the entire company. Think of it like buying a house that already has a mortgage: you have to pay the house value (Market Cap) plus you take on the mortgage (Net Debt).
+
+On the other hand, DCF intrinsic values are estimations calculated via DCF analysis, not market values:
+
+- **Intrinsic Enterprise Value**, defined as PV of FCF (years 1-N) + PV of Terminal Value. This is what DCF calculates directly - the present value of all future cash flows from operations.
+- **Intrinsic Equity Value**, defined as Intrinsic Enterprise Value - Estimated Net Debt, is what shareholders' stake is actually worth after accounting for debt.
+- **Intrinsic Price per Share**, defined as Intrinsic Equity Value / Shares Outstanding.
+
+A key insight is that, DCF estimates **Enterprise Value**. To get **Equity Value** (and price per share), we must subtract net debt. Skipping this step overestimates equity value for companies with significant debt. For simplicity in this post, we'll follow the same approach as our previous posts and not adjust for net debt. We'll address this refinement in a future post where we'll enhance all three DCF variations.
+
+## The Exit Multiple Method
+
+The exit multiple method answers a simple question: **If I sell this business in N years, what will someone pay for it?**. The answer depends on market multiples. When investors buy companies, they typically pay some multiple of the company's financial metrics. For our purposes (and simplicity), we'll use the **EV/FCF multiple**, i.e. how many times free cash flow the market values the enterprise at. Using FCF in the denominator allows us to easily integrate it into our DCF valuation method.
+
+### Calculating Historical Multiples
+
+To determine a reasonable exit multiple, we look at how the company has historically traded:
+
+$$
+\frac{EV}{FCF} = \frac{Enterprise Value}{Free Cash Flow} = \frac{Market Cap + Net Debt}{Free Cash Flow}
+$$
+where market cap and net debt are both observable from market data and balance sheets.
+
+For example:
+- Coca-Cola might historically trade at 25-35x FCF
+- A cyclical like LyondellBasell might trade at 8-15x FCF depending on the cycle
+- A high-growth company like Visa might trade at 25-30x FCF
+
+Note that we typically use a **5-10 year average** to smooth out temporary fluctuations.
+
+### The Terminal Value Formula
+
+Once we have our exit multiple, the terminal value calculation is straightforward:
+
+$$
+Terminal Value = FCF_N \cdot Exit Multiple
+$$
+
+This represents what we expect the enterprise to be worth at year N based on that year's free cash flow and historical market multiples.
+
+### Key Difference from Perpetuity Growth
+
+The perpetuity method calculates: 
+
+$$
+TV = \frac{FCF_{N+1}}{d - g_t}
+$$
+
+Notice that the discount rate, $d$, appears in the terminal value calculation itself, making it highly sensitive to your discount rate assumption. In contrast, the exit multiple method only uses the discount rate for **timing**, to calculate the present value of year N's value. 
+
+A critical insight is that the multiple itself already embeds the market's assessment of growth, risk, and quality.
+
+## When Discount Rate Matters
+
+One of the most striking differences between the two methods is how they respond to changes in the discount rate. The best way to see its effect is using an example. Let's analyze Coca-Cola using different discount rates.
+
+### The Discount Rate Sensitivity
+
+Consider KO with these parameters:
+- FCFps_0 = $2.10
+- FCF growth (gf) = 4%
+- Share buyback rate (gs) = -1%
+- Terminal growth (gt) = 3%
+- Exit multiple = 30x
+
+**At d = 5% (low discount rate):**
+
+- Exit Multiple Method: $84.36
+- Perpetuity Growth: $131.89
+- **Perpetuity values it 56% higher**
+
+**At d = 10% (higher discount rate):**
+
+- Exit Multiple Method: $56.20
+- Perpetuity Growth: $36.33
+- **Exit Multiple values it 55% higher**
+
+Notice how the relative valuations completely flip! Why?
+
+### The Mathematical Explanation
+
+In the perpetuity growth method, the discount rate appears in the terminal value formula itself (as part of the factor defining the geometric series):
+
+$$TV = \frac{FCF_{N+1}}{d - g_t}$$
+
+- When d = 5%: TV = FCF₁₁ / 0.02 = **50x** FCF₁₁  
+- When d = 10%: TV = FCF₁₁ / 0.07 ≈ **14.3x** FCF₁₁
+
+The implied multiple changes dramatically with the discount rate!
+
+In contrast, the exit multiple method uses a **fixed multiple** (30x in this case) regardless of the discount rate. The discount rate only affects the timing of bringing that future value back to today.
+
+### What This Means
+
+The exit multiple method essentially says: "The market has valued this company at 30x FCF historically, and I expect that to continue."
+
+The perpetuity method says: "Based on my assumptions about required return (d) and growth (gt), the company should be valued at $\frac{1}{d-gt}$ times FCF."
+
+Neither is inherently "correct", they're just focusing on different aspects. Note that the multiple used in the exit multiple terminal valuation is a historical average defined by the market. Therefore, we can assume in includes many factors such as expected growth, business quality or deterioration, debt status, risks...
+
+## Implementation
+
+We'll build on our DCF function from the previous post that accounts for buybacks. The only change is replacing the perpetuity growth terminal value with our exit multiple terminal value.
+
+First, the helper functions we need:
+
+```python
+def estimate_future_FCF(FCF_0: float, r: float, n: int) -> float:
+    """Estimate future free cash flow based on current FCF and growth rate."""
+    return FCF_0 * (1 + r)**n
+
+def present_value(fv: float, d: float, n: int) -> float:
+    """Calculate present value of a future cash flow."""
+    return fv / (1 + d)**n
+
+def compute_effective_growth_rate(gf: float, gs: float) -> float:
+    """Compute effective growth rate for FCF per share."""
+    return (1 + gf) / (1 + gs) - 1
+
+def terminal_value_exit_multiple(fcf_terminal: float, exit_multiple: float) -> float:
+    """Calculate terminal value using the exit multiple method."""
+    return fcf_terminal * exit_multiple
+```
+
+And now the main DCF function with exit multiple:
+
+```python
+def dcf_valuation_exit_multiple_with_buybacks(
+    FCFps_0: float, 
+    gf: float, 
+    gs: float, 
+    d: float, 
+    exit_multiple: float,
+    N: int = 10
+) -> float:
+    """
+    Compute DCF valuation per share accounting for buybacks/share issuance.
+    
+    Args:
+        FCFps_0: Current free cash flow per share
+        gf: Growth rate for total free cash flow (e.g., 0.05 for 5%)
+        gs: Growth rate for shares outstanding (negative for buybacks)
+        d: Discount rate (e.g., 0.10 for 10%)
+        exit_multiple: Historical EV/FCF multiple (e.g. 30)
+        N: Number of years to project explicitly (default: 10)
+    
+    Returns:
+        Estimated fair value per share
+    """
+    geff = compute_effective_growth_rate(gf, gs)
+    pvs = [present_value(estimate_future_FCF(FCFps_0, geff, i+1), d, i+1) for i in range(N)]
+    PV = sum(pvs)
+    fcf_terminal = estimate_future_FCF(FCFps_0, geff, N)
+    TV = present_value(terminal_value_exit_multiple(fcf_terminal, exit_multiple), d, N)
+    return PV + TV
+```
+
+The key change from our perpetuity growth version is in the terminal value calculation:
+
+- **Before**: `TV = present_value(terminal_value(FCF_{N+1}, d, gt), d, N)`
+- **After**: `TV = present_value(terminal_value_exit_multiple(FCF_N, exit_multiple), d, N)`
+
+## Real-World Examples
+
+Let's apply both methods to three different types of companies to see how they compare in practice.
+
+### Coca-Cola (KO) - Stable Quality Company
+
+**Parameters:**
+
+- $FCF_{ps_0}$ = $2.10 (5-year average)
+- FCF growth (gf) = 4%
+- Share buyback rate (gs) = -1%
+- Discount rate (d) = 10%
+- Exit multiple = 30x
+- Terminal growth (gt) = 3%
+
+**Results:**
+
+| Method | Fair Value |
+|--------|-----------|
+| Exit Multiple (30x) | $56.20 |
+| Perpetuity Growth (3%) | $36.33 |
+
+The exit multiple method values KO 55% higher. With a 10% discount rate, the perpetuity method's implied multiple is only 14.3x (from 1/(0.10-0.03)), well below KO's historical 30x trading multiple.
+
+### LyondellBasell (LYB) - Cyclical Company
+
+**Parameters:**
+
+- $FCF_{ps_0}$ = $6.20 (5-year average)
+- FCF growth (gf) = 5%
+- Share buyback rate (gs) = -1%
+- Discount rate (d) = 15% (given the lack of competitive advantage I request higher returns to compensate the risk)
+- Exit multiple = 12x
+- Terminal growth (gt) = 3%
+
+**Results:**
+
+| Method | Fair Value |
+|--------|-----------|
+| Exit Multiple (12x) | $73.93 |
+| Perpetuity Growth (3%) | $65.21 |
+
+The exit multiple method values LYB 13% higher. Note the lower exit multiple (12x) reflects the cyclical nature of the business. The higher discount rate (15%) reflects the additional risk.
+
+### Visa (V) - High-Growth Company
+
+**Parameters:**
+
+- $FCF_{ps_0}$ = $8.00 (5-year average)
+- FCF growth (gf) = 7%
+- Share buyback rate (gs) = -2.5%
+- Discount rate (d) = 10%
+- Exit multiple = 27x
+- Terminal growth (gt) = 3%
+
+**Results:**
+
+| Method | Fair Value |
+|--------|-----------|
+| Exit Multiple (27x) | $290.00 |
+| Perpetuity Growth (3%) | $201.51 |
+
+The exit multiple method values Visa 44% higher. Visa's combination of high growth (7%), aggressive buybacks (-2.5%), and premium multiple (27x) produces a significantly higher valuation with the exit multiple approach.
+
+## Key Takeaways
+
+### When to Use Each Method
+
+**Exit Multiple Method:**
+
+- You have reliable historical trading multiples (5-10 years of data)
+- You are skeptical about long-term growth assumptions
+- You are valuing cyclical companies where timing matters
+- You want to anchor your valuation in observable market behavior
+
+**Perpetuity Growth Method:**
+
+- You have high confidence in long-term sustainable growth rates
+- The company has durable competitive advantages (moat)
+- You want to explicitly model your assumptions about growth and required returns
+- You're valuing stable, predictable businesses
+
+### Key Insights
+
+1. **Discount Rate Sensitivity**: The perpetuity method is highly sensitive to discount rate changes because $d$ appears in the terminal value formula itself. The exit multiple method only uses $d$ for timing.
+2. **Implied Multiples**: The perpetuity method's implied multiple is $\frac{1}{d - gt}$. With $d$=10% and $gt$=3%, this gives 14.3x. If historical multiples are much higher (like KO's 30x), the exit multiple method will give higher valuations.
+3. **Market Expectations Embedded**: Exit multiples already embed the market's collective assessment of growth, risk, quality, and competitive position. You're essentially saying "the market's historical judgment is reasonable."
+4. **Complementary Approaches**: We can use both methods! If they give similar results, you have more confidence. If they diverge significantly, investigate why and determine which assumptions are more reasonable for that specific company.
+
+## Future Directions
+
+This post completes our exploration of terminal value methods. But there's more to explore:
+
+- **Net Debt Adjustment**: As discussed before, our current DCF implementation skips an important step: subtracting net debt to convert Enterprise Value to Equity Value. In a future post, I will explore this idea and see how it affects valuations. 
+- **Scenario Analysis for Cyclicals**: The exit multiple method is particularly powerful for cyclical companies like LYB because you can model different scenarios, such as conservative, with average FCF and multiple; moderate, with average FCF and high-cycle multiple; and aggressive, with high-cycle FCF and high-cycle multiple. Modeling these scenarios can help you estimate the range of potential outcomes when timing a "buy low, sell high" strategy.
