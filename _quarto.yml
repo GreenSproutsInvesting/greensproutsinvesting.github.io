@@ -16,3 +16,7 @@ format:
   html:
     theme: cosmo
     css: styles.css
+    include-after-body:
+      text: |
+        <script data-goatcounter="https://greensproutsinvesting.goatcounter.com/count"
+                async src="//gc.zgo.at/count.js"></script>

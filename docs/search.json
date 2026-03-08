@@ -70,6 +70,41 @@
     "text": "Future Directions\nThis post completes our exploration of terminal value methods. But there’s more to explore:\n\nNet Debt Adjustment: As discussed before, our current DCF implementation skips an important step: subtracting net debt to convert Enterprise Value to Equity Value. In a future post, I will explore this idea and see how it affects valuations.\nScenario Analysis for Cyclicals: The exit multiple method is particularly powerful for cyclical companies like LYB because you can model different scenarios, such as conservative, with average FCF and multiple; moderate, with average FCF and high-cycle multiple; and aggressive, with high-cycle FCF and high-cycle multiple. Modeling these scenarios can help you estimate the range of potential outcomes when timing a “buy low, sell high” strategy."
   },
   {
+    "objectID": "posts/2026-02/post.html",
+    "href": "posts/2026-02/post.html",
+    "title": "Portfolio Update: February 2026",
+    "section": "",
+    "text": "Mixed results this month. A few climbers and a few stocks when down significantly.\n\n\nThe Federal Reserve held rates steady at its January meeting. The US labor market continued to cool: December’s payroll numbers showed one of the slowest years for employment growth in over a decade. The S&P 500 posted back-to-back weekly losses in early February, while the NASDAQ dropped for five consecutive weeks.\n\n\n\nThe ECB held its deposit rate at 2% on February 5. Euro area inflation dipped to 1.7% (not too believable if you ask me).\nThen came the shock. Late February saw a sharp escalation in the Middle East. Iranian forces struck critical energy infrastructure, and the blocking of the Strait of Hormuz was announced. A serious hit for worldwide oil and gas flow. The Euro STOXX 50 fell 3.3%, Germany’s DAX slid over 3%, and Spain’s IBEX 35 and Italy’s FTSE MIB both dropped more than 4%. We will see how this evolves.\n\n\n\nChina’s GDP surpassed 140 trillion yuan ($20.4 trillion). The economy expanding is said to be expanding 5% year-on-year in 2025. I hope to see this in the stock market evolution in the coming months."
+  },
+  {
+    "objectID": "posts/2026-02/post.html#what-happened-in-february",
+    "href": "posts/2026-02/post.html#what-happened-in-february",
+    "title": "Portfolio Update: February 2026",
+    "section": "",
+    "text": "Mixed results this month. A few climbers and a few stocks when down significantly.\n\n\nThe Federal Reserve held rates steady at its January meeting. The US labor market continued to cool: December’s payroll numbers showed one of the slowest years for employment growth in over a decade. The S&P 500 posted back-to-back weekly losses in early February, while the NASDAQ dropped for five consecutive weeks.\n\n\n\nThe ECB held its deposit rate at 2% on February 5. Euro area inflation dipped to 1.7% (not too believable if you ask me).\nThen came the shock. Late February saw a sharp escalation in the Middle East. Iranian forces struck critical energy infrastructure, and the blocking of the Strait of Hormuz was announced. A serious hit for worldwide oil and gas flow. The Euro STOXX 50 fell 3.3%, Germany’s DAX slid over 3%, and Spain’s IBEX 35 and Italy’s FTSE MIB both dropped more than 4%. We will see how this evolves.\n\n\n\nChina’s GDP surpassed 140 trillion yuan ($20.4 trillion). The economy expanding is said to be expanding 5% year-on-year in 2025. I hope to see this in the stock market evolution in the coming months."
+  },
+  {
+    "objectID": "posts/2026-02/post.html#a-few-february-anniversaries",
+    "href": "posts/2026-02/post.html#a-few-february-anniversaries",
+    "title": "Portfolio Update: February 2026",
+    "section": "A few February anniversaries",
+    "text": "A few February anniversaries\n\nFebruary 4, 2004 (22 years ago): Facebook launched from a Harvard dorm room. Love it or hate it, Meta is now one of the most valuable companies on the planet.\nFebruary 2020 (6 years ago): COVID hit hard. We all know how it ended."
+  },
+  {
+    "objectID": "posts/2026-02/post.html#monthly-movers",
+    "href": "posts/2026-02/post.html#monthly-movers",
+    "title": "Portfolio Update: February 2026",
+    "section": "Monthly movers",
+    "text": "Monthly movers\n\nTop performers\nAhold Delhaize (AD.AS) +24.9% was the month’s clear winner. Good Q4 earnings seems to have sparked the market’s interest. Some analysts raised price targets. As a consumer staples name, maybe it also benefited from a rotation out of growth and into defensive positions.\nTexhong International (2678.HK) +20.7% likely caught a tailwind from China’s economic sentiment. It seems manufacturers with Southeast Asian exposure are seeing improved order books. Could this be finally the inflection point? I hope so, but so I did the last few months too…\nLyondellBasell (LYB) +14.5% saw a boost from rising energy and commodity prices tied to the Middle East escalation. At the same time, dividends were sliced almost 50%. Overall the market appears to like that managment decision.\n\n\nTop losers\nRobert Half (RHI) -26.4% took the hardest hit. With US job growth at its weakest in years, the outlook for this kind of company is not great. We’ll have to keep waiting for the cycle reversal.\nH&R Block (HRB) -20.9%. This is a new position in my portfolio. It’s a boring business and apparently doomed due to the AI. I disagree, but I will not be making it a large position in my portfolio quickly. I’ll probably keep buying at the dips until the position reaches max. 2% of my portfolio, probably even less.\nT. Rowe Price (TROW) -11.3% suffered as an asset manager whose revenue is tied to AUM. Equity markets falling, employment lagging… it’s the perfect combination for people to reach out for their savings held in funds. The situation will eventually improve and money will start flowing in again.\nBBVA (BBVA.MC) -9.9% and CaixaBank (CABK.MC) -7.8% were caught in the broader European selloff triggered by the Middle East crisis. BBVA announced a large buyback program. I plan to keep BBVA, but I’ll most likely close my position in CaixaBank in the coming weeks/months."
+  },
+  {
+    "objectID": "posts/2026-02/post.html#portfolio-snapshot",
+    "href": "posts/2026-02/post.html#portfolio-snapshot",
+    "title": "Portfolio Update: February 2026",
+    "section": "Portfolio snapshot",
+    "text": "Portfolio snapshot\n\nAllocation\n\n\n\nPortfolio allocation as of February 2026\n\n\n\n\nPerformance by position\n\n\n\nReturn by position\n\n\n\n\nHistorical returns (top 10 positions)\n\n\n\nHistorical return curves for top positions by cost basis"
+  },
+  {
     "objectID": "posts/dcf-basics/post.html",
     "href": "posts/dcf-basics/post.html",
     "title": "Understanding DCF Valuation: The Basics",
@@ -126,6 +161,76 @@
     "text": "Conclusion\nWe’ve built a complete DCF valuation model from first principles, implementing the perpetuity growth method to estimate terminal value. Applying this model to three different companies revealed some interesting insights:\n\nQuality companies like KO can occasionally trade near fair value, though they often command a premium for their stability\nMDLZ appears significantly undervalued by this model, suggesting either overly optimistic assumptions or genuine market undervaluation\nCyclical companies like LYB present challenges for perpetuity-based models, as current FCF may not represent normalized earnings\n\nThe model produces reasonable valuations when we use appropriate discount rates that reflect each company’s risk profile. However, we’ve identified a significant limitation: we haven’t accounted for share buybacks, which many quality companies use aggressively to return value to shareholders.\n\nWhat’s Next?\nIn the next post, we’ll enhance this model by incorporating share buybacks. When companies reduce their share count over time, FCF per share grows faster than the overall FCF growth rate. This adjustment often brings valuations much closer to market prices for companies that consistently buy back shares.\nStay tuned for Part 2: Adding Share Buybacks to the DCF Model!"
   },
   {
+    "objectID": "posts/2026-01/post.html",
+    "href": "posts/2026-01/post.html",
+    "title": "Portfolio Update: January 2026",
+    "section": "",
+    "text": "Geopolitical moves: Venezuela and Iran dominated the news this month (at least my news feed). Difficult to tell what will happen with the oil prices now.\nEuropean stocks at all-time highs: It’s getting difficult to find investing opportunities in Europe. With so many indices at all-time highs it’s easy to fall in value traps so we have to be extra careful.\nIPO Market Momentum: Several potential listings of high-profile companies in the horizon (SpaceX, Anthropic, OpenAI…). Exciting months ahead."
+  },
+  {
+    "objectID": "posts/2026-01/post.html#major-investing-economic-events",
+    "href": "posts/2026-01/post.html#major-investing-economic-events",
+    "title": "Portfolio Update: January 2026",
+    "section": "",
+    "text": "Geopolitical moves: Venezuela and Iran dominated the news this month (at least my news feed). Difficult to tell what will happen with the oil prices now.\nEuropean stocks at all-time highs: It’s getting difficult to find investing opportunities in Europe. With so many indices at all-time highs it’s easy to fall in value traps so we have to be extra careful.\nIPO Market Momentum: Several potential listings of high-profile companies in the horizon (SpaceX, Anthropic, OpenAI…). Exciting months ahead."
+  },
+  {
+    "objectID": "posts/2026-01/post.html#january-in-investing-history",
+    "href": "posts/2026-01/post.html#january-in-investing-history",
+    "title": "Portfolio Update: January 2026",
+    "section": "January in Investing History",
+    "text": "January in Investing History\n\nJanuary 1999: Euro officially introduced."
+  },
+  {
+    "objectID": "posts/2026-01/post.html#monthly-movers",
+    "href": "posts/2026-01/post.html#monthly-movers",
+    "title": "Portfolio Update: January 2026",
+    "section": "Monthly Movers",
+    "text": "Monthly Movers\n\nTop Performers\nRobert Half (RHI) +26.6% Robert Half reported slightly better results than expected. The stock jumped nearly 28% in a single day. Crazy, if you ask me. I’m still positive in the long term so I’ll keep waiting for the cycle reversal and happy to receive sweet dividends along the way. Oh, and apparently it’s again on the Fortune’s 2026 World’s Most Admired Companies list for the 29th consecutive year.\nXinyi Glass (0868.HK) +20.4% It seems both Xinyi Glass and Xinyi Solor entered an Electricity Framework Agreement for 2026, but I think this rise is just another signal from the markets recognizing China’s recovery.\nCK Hutchison (0001.HK) +17.1% An IPO of the health and beauty retailed from CKH seems to have triggered (in my opinion) undeserved optimism in the market. Still, happy to see the price rise.\nTexhong International (2678.HK) +15.5% Another cyclical company. I’m simply waiting for the cycle reversal. Oh, and they released a positive profit warning. I hope they will also increase the dividend significantly they generate more than enough cash flow last year.\nArcher Daniels Midland (ADM) +14.0% I’m not totally sure I’ll keep this one much longer. The dividend is not that large and I’m not sure about the commodity prices. They could very well turn around again. I bought it quite cheap, so I’ll probably keep it for a little longer at least.\n\n\nUnderperformers\nAhold Delhaize (AD.AS) -5.5% Nothing out of the ordinary in this one. A 6% variation is quite standard and I don’t think about it twice."
+  },
+  {
+    "objectID": "posts/2026-01/post.html#portfolio-snapshot",
+    "href": "posts/2026-01/post.html#portfolio-snapshot",
+    "title": "Portfolio Update: January 2026",
+    "section": "Portfolio Snapshot",
+    "text": "Portfolio Snapshot\n\nAllocation\n\n\n\nPortfolio Allocation\n\n\n\n\nPerformance\n\n\n\nPortfolio Performance\n\n\n\n\nHistorical Returns\n\n\n\nHistorical Returns"
+  },
+  {
+    "objectID": "posts/2025-12/post.html",
+    "href": "posts/2025-12/post.html",
+    "title": "Portfolio Update: December 2025",
+    "section": "",
+    "text": "Fed Rate Cut: Fed interest rate cut. Difficult to tell what comes next. Whatever it is, we should try to be prepared and invest with a decent margin of safety.\nTrade Ceasefire with China: The trade war between US and China seems to have slowed down, including mutual tariff reductions and agreements on rare earth and ship imports."
+  },
+  {
+    "objectID": "posts/2025-12/post.html#major-investing-economic-events",
+    "href": "posts/2025-12/post.html#major-investing-economic-events",
+    "title": "Portfolio Update: December 2025",
+    "section": "",
+    "text": "Fed Rate Cut: Fed interest rate cut. Difficult to tell what comes next. Whatever it is, we should try to be prepared and invest with a decent margin of safety.\nTrade Ceasefire with China: The trade war between US and China seems to have slowed down, including mutual tariff reductions and agreements on rare earth and ship imports."
+  },
+  {
+    "objectID": "posts/2025-12/post.html#historical-investing-events-in-december",
+    "href": "posts/2025-12/post.html#historical-investing-events-in-december",
+    "title": "Portfolio Update: December 2025",
+    "section": "Historical Investing Events in December",
+    "text": "Historical Investing Events in December\n\nDecember 1980: Paul Volcker’s Fed raised rates to 21.5%, the highest in US history. Crazy interest rates!\nDecember 1996: Alan Greenspan’s famous “irrational exuberance” speech. I didn’t know about this one. I’ll definitely look it up.\nDecember 2007: The Great Recession officially began. I still remember those days.\nDecember 2018: Christmas Eve marked the S&P 500’s worst December performance since the Great Depression"
+  },
+  {
+    "objectID": "posts/2025-12/post.html#monthly-movers",
+    "href": "posts/2025-12/post.html#monthly-movers",
+    "title": "Portfolio Update: December 2025",
+    "section": "Monthly Movers",
+    "text": "Monthly Movers\n\nTop Performers\nBristol-Myers Squibb (BMY) +10.2% Nothing extraordinary about this one. BMY announced a dividend increase (17th consecutive year), but it was a rather small increase. They also presented some data to showcase pipeline strength, but it’s difficult to map that to improved business fundamentals.\nSpanish Banks (SAN +8.9%, CABK +7.2%, BBVA +7.0%) The Spanish banking sector continued its strong run. Honestly, I think they just have tailwinds after so many years being the ugly duckling of the spanish IBEX35.\n\n\nBottom Performers\nChina Water Affairs (0855.HK) -11.7% & Beijing Enterprises (0392.HK) -8.8% It seems China’s real estate development is getting back on its feet, but more slowly than anticipated. Utilities will keep stalling for a while, I think.\nLyondellBasell (LYB) -8.9% Nothing special about this one. Very cyclical company. I will keep waiting for the cycle reversal.\nDiageo (DGE.L) -8.3% I have some doubts about this one. I still think it will recover, but it looks like there may be some truth to the changing trends in alcohol consumption. We will see.\nNike (NKE) -6.4% I’m considering selling this position, mostly due to pressure from competing sports brands. On the other hand Nike has no debt issues, so if someone is able to face difficulties and overcome them that’s Nike. I will keep thinking about it."
+  },
+  {
+    "objectID": "posts/2025-12/post.html#portfolio-charts",
+    "href": "posts/2025-12/post.html#portfolio-charts",
+    "title": "Portfolio Update: December 2025",
+    "section": "Portfolio Charts",
+    "text": "Portfolio Charts\n\nAllocation\n\n\n\nPortfolio Allocation\n\n\n\n\nPerformance\n\n\n\nPortfolio Performance\n\n\n\n\nHistorical Returns\nThese are my 10 largest positions by cost (not current value) and their return evolution over time. The markers signal buy operations.\n\n\n\nHistorical Returns"
+  },
+  {
     "objectID": "posts/dcf-buybacks/post.html",
     "href": "posts/dcf-buybacks/post.html",
     "title": "Discounted Cash Flows and the Effect of Buybacks",
@@ -173,110 +278,5 @@
     "title": "About",
     "section": "",
     "text": "I am working toward financial independence through dividend investing. My goal is to build a portfolio that provides the freedom to choose how I spend my time, without the constant pressure of relying solely on my job to provide for my family.\nMy approach is straightforward: I study companies carefully, perform my own valuations, and only buy when there is a good margin of safety. Price is one of the pillars to achieve strong returns. I focus on dividend-paying stocks because they provide peace of mind through periodic income while I build ownership in quality businesses. Warren Buffett’s philosophy resonates strongly with me.\nThis blog is where I share my journey as I learn and grow as an investor. I hope to publish company analyses, valuation models, portfolio movements and reflections on what I am discovering along the way. I am a beginner at sharing publicly, but I believe documenting the process will help both me and others on a similar path."
-  },
-  {
-    "objectID": "posts/2025-12/post.html",
-    "href": "posts/2025-12/post.html",
-    "title": "Portfolio Update: December 2025",
-    "section": "",
-    "text": "Fed Rate Cut: Fed interest rate cut. Difficult to tell what comes next. Whatever it is, we should try to be prepared and invest with a decent margin of safety.\nTrade Ceasefire with China: The trade war between US and China seems to have slowed down, including mutual tariff reductions and agreements on rare earth and ship imports."
-  },
-  {
-    "objectID": "posts/2025-12/post.html#major-investing-economic-events",
-    "href": "posts/2025-12/post.html#major-investing-economic-events",
-    "title": "Portfolio Update: December 2025",
-    "section": "",
-    "text": "Fed Rate Cut: Fed interest rate cut. Difficult to tell what comes next. Whatever it is, we should try to be prepared and invest with a decent margin of safety.\nTrade Ceasefire with China: The trade war between US and China seems to have slowed down, including mutual tariff reductions and agreements on rare earth and ship imports."
-  },
-  {
-    "objectID": "posts/2025-12/post.html#historical-investing-events-in-december",
-    "href": "posts/2025-12/post.html#historical-investing-events-in-december",
-    "title": "Portfolio Update: December 2025",
-    "section": "Historical Investing Events in December",
-    "text": "Historical Investing Events in December\n\nDecember 1980: Paul Volcker’s Fed raised rates to 21.5%, the highest in US history. Crazy interest rates!\nDecember 1996: Alan Greenspan’s famous “irrational exuberance” speech. I didn’t know about this one. I’ll definitely look it up.\nDecember 2007: The Great Recession officially began. I still remember those days.\nDecember 2018: Christmas Eve marked the S&P 500’s worst December performance since the Great Depression"
-  },
-  {
-    "objectID": "posts/2025-12/post.html#monthly-movers",
-    "href": "posts/2025-12/post.html#monthly-movers",
-    "title": "Portfolio Update: December 2025",
-    "section": "Monthly Movers",
-    "text": "Monthly Movers\n\nTop Performers\nBristol-Myers Squibb (BMY) +10.2% Nothing extraordinary about this one. BMY announced a dividend increase (17th consecutive year), but it was a rather small increase. They also presented some data to showcase pipeline strength, but it’s difficult to map that to improved business fundamentals.\nSpanish Banks (SAN +8.9%, CABK +7.2%, BBVA +7.0%) The Spanish banking sector continued its strong run. Honestly, I think they just have tailwinds after so many years being the ugly duckling of the spanish IBEX35.\n\n\nBottom Performers\nChina Water Affairs (0855.HK) -11.7% & Beijing Enterprises (0392.HK) -8.8% It seems China’s real estate development is getting back on its feet, but more slowly than anticipated. Utilities will keep stalling for a while, I think.\nLyondellBasell (LYB) -8.9% Nothing special about this one. Very cyclical company. I will keep waiting for the cycle reversal.\nDiageo (DGE.L) -8.3% I have some doubts about this one. I still think it will recover, but it looks like there may be some truth to the changing trends in alcohol consumption. We will see.\nNike (NKE) -6.4% I’m considering selling this position, mostly due to pressure from competing sports brands. On the other hand Nike has no debt issues, so if someone is able to face difficulties and overcome them that’s Nike. I will keep thinking about it."
-  },
-  {
-    "objectID": "posts/2025-12/post.html#portfolio-charts",
-    "href": "posts/2025-12/post.html#portfolio-charts",
-    "title": "Portfolio Update: December 2025",
-    "section": "Portfolio Charts",
-    "text": "Portfolio Charts\n\nAllocation\n\n\n\nPortfolio Allocation\n\n\n\n\nPerformance\n\n\n\nPortfolio Performance\n\n\n\n\nHistorical Returns\nThese are my 10 largest positions by cost (not current value) and their return evolution over time. The markers signal buy operations.\n\n\n\nHistorical Returns"
-  },
-  {
-    "objectID": "posts/2026-01/post.html",
-    "href": "posts/2026-01/post.html",
-    "title": "Portfolio Update: January 2026",
-    "section": "",
-    "text": "Geopolitical moves: Venezuela and Iran dominated the news this month (at least my news feed). Difficult to tell what will happen with the oil prices now.\nEuropean stocks at all-time highs: It’s getting difficult to find investing opportunities in Europe. With so many indices at all-time highs it’s easy to fall in value traps so we have to be extra careful.\nIPO Market Momentum: Several potential listings of high-profile companies in the horizon (SpaceX, Anthropic, OpenAI…). Exciting months ahead."
-  },
-  {
-    "objectID": "posts/2026-01/post.html#major-investing-economic-events",
-    "href": "posts/2026-01/post.html#major-investing-economic-events",
-    "title": "Portfolio Update: January 2026",
-    "section": "",
-    "text": "Geopolitical moves: Venezuela and Iran dominated the news this month (at least my news feed). Difficult to tell what will happen with the oil prices now.\nEuropean stocks at all-time highs: It’s getting difficult to find investing opportunities in Europe. With so many indices at all-time highs it’s easy to fall in value traps so we have to be extra careful.\nIPO Market Momentum: Several potential listings of high-profile companies in the horizon (SpaceX, Anthropic, OpenAI…). Exciting months ahead."
-  },
-  {
-    "objectID": "posts/2026-01/post.html#january-in-investing-history",
-    "href": "posts/2026-01/post.html#january-in-investing-history",
-    "title": "Portfolio Update: January 2026",
-    "section": "January in Investing History",
-    "text": "January in Investing History\n\nJanuary 1999: Euro officially introduced."
-  },
-  {
-    "objectID": "posts/2026-01/post.html#monthly-movers",
-    "href": "posts/2026-01/post.html#monthly-movers",
-    "title": "Portfolio Update: January 2026",
-    "section": "Monthly Movers",
-    "text": "Monthly Movers\n\nTop Performers\nRobert Half (RHI) +26.6% Robert Half reported slightly better results than expected. The stock jumped nearly 28% in a single day. Crazy, if you ask me. I’m still positive in the long term so I’ll keep waiting for the cycle reversal and happy to receive sweet dividends along the way. Oh, and apparently it’s again on the Fortune’s 2026 World’s Most Admired Companies list for the 29th consecutive year.\nXinyi Glass (0868.HK) +20.4% It seems both Xinyi Glass and Xinyi Solor entered an Electricity Framework Agreement for 2026, but I think this rise is just another signal from the markets recognizing China’s recovery.\nCK Hutchison (0001.HK) +17.1% An IPO of the health and beauty retailed from CKH seems to have triggered (in my opinion) undeserved optimism in the market. Still, happy to see the price rise.\nTexhong International (2678.HK) +15.5% Another cyclical company. I’m simply waiting for the cycle reversal. Oh, and they released a positive profit warning. I hope they will also increase the dividend significantly they generate more than enough cash flow last year.\nArcher Daniels Midland (ADM) +14.0% I’m not totally sure I’ll keep this one much longer. The dividend is not that large and I’m not sure about the commodity prices. They could very well turn around again. I bought it quite cheap, so I’ll probably keep it for a little longer at least.\n\n\nUnderperformers\nAhold Delhaize (AD.AS) -5.5% Nothing out of the ordinary in this one. A 6% variation is quite standard and I don’t think about it twice."
-  },
-  {
-    "objectID": "posts/2026-01/post.html#portfolio-snapshot",
-    "href": "posts/2026-01/post.html#portfolio-snapshot",
-    "title": "Portfolio Update: January 2026",
-    "section": "Portfolio Snapshot",
-    "text": "Portfolio Snapshot\n\nAllocation\n\n\n\nPortfolio Allocation\n\n\n\n\nPerformance\n\n\n\nPortfolio Performance\n\n\n\n\nHistorical Returns\n\n\n\nHistorical Returns"
-  },
-  {
-    "objectID": "posts/2026-02/post.html",
-    "href": "posts/2026-02/post.html",
-    "title": "Portfolio Update: February 2026",
-    "section": "",
-    "text": "Mixed results this month. A few climbers and a few stocks when down significantly.\n\n\nThe Federal Reserve held rates steady at its January meeting. The US labor market continued to cool: December’s payroll numbers showed one of the slowest years for employment growth in over a decade. The S&P 500 posted back-to-back weekly losses in early February, while the NASDAQ dropped for five consecutive weeks.\n\n\n\nThe ECB held its deposit rate at 2% on February 5. Euro area inflation dipped to 1.7% (not too believable if you ask me).\nThen came the shock. Late February saw a sharp escalation in the Middle East. Iranian forces struck critical energy infrastructure, and the blocking of the Strait of Hormuz was announced. A serious hit for worldwide oil and gas flow. The Euro STOXX 50 fell 3.3%, Germany’s DAX slid over 3%, and Spain’s IBEX 35 and Italy’s FTSE MIB both dropped more than 4%. We will see how this evolves.\n\n\n\nChina’s GDP surpassed 140 trillion yuan ($20.4 trillion). The economy expanding is said to be expanding 5% year-on-year in 2025. I hope to see this in the stock market evolution in the coming months."
-  },
-  {
-    "objectID": "posts/2026-02/post.html#what-happened-in-february",
-    "href": "posts/2026-02/post.html#what-happened-in-february",
-    "title": "Portfolio Update: February 2026",
-    "section": "",
-    "text": "Mixed results this month. A few climbers and a few stocks when down significantly.\n\n\nThe Federal Reserve held rates steady at its January meeting. The US labor market continued to cool: December’s payroll numbers showed one of the slowest years for employment growth in over a decade. The S&P 500 posted back-to-back weekly losses in early February, while the NASDAQ dropped for five consecutive weeks.\n\n\n\nThe ECB held its deposit rate at 2% on February 5. Euro area inflation dipped to 1.7% (not too believable if you ask me).\nThen came the shock. Late February saw a sharp escalation in the Middle East. Iranian forces struck critical energy infrastructure, and the blocking of the Strait of Hormuz was announced. A serious hit for worldwide oil and gas flow. The Euro STOXX 50 fell 3.3%, Germany’s DAX slid over 3%, and Spain’s IBEX 35 and Italy’s FTSE MIB both dropped more than 4%. We will see how this evolves.\n\n\n\nChina’s GDP surpassed 140 trillion yuan ($20.4 trillion). The economy expanding is said to be expanding 5% year-on-year in 2025. I hope to see this in the stock market evolution in the coming months."
-  },
-  {
-    "objectID": "posts/2026-02/post.html#a-few-february-anniversaries",
-    "href": "posts/2026-02/post.html#a-few-february-anniversaries",
-    "title": "Portfolio Update: February 2026",
-    "section": "A few February anniversaries",
-    "text": "A few February anniversaries\n\nFebruary 4, 2004 (22 years ago): Facebook launched from a Harvard dorm room. Love it or hate it, Meta is now one of the most valuable companies on the planet.\nFebruary 2020 (6 years ago): COVID hit hard. We all know how it ended."
-  },
-  {
-    "objectID": "posts/2026-02/post.html#monthly-movers",
-    "href": "posts/2026-02/post.html#monthly-movers",
-    "title": "Portfolio Update: February 2026",
-    "section": "Monthly movers",
-    "text": "Monthly movers\n\nTop performers\nAhold Delhaize (AD.AS) +24.9% was the month’s clear winner. Good Q4 earnings seems to have sparked the market’s interest. Some analysts raised price targets. As a consumer staples name, maybe it also benefited from a rotation out of growth and into defensive positions.\nTexhong International (2678.HK) +20.7% likely caught a tailwind from China’s economic sentiment. It seems manufacturers with Southeast Asian exposure are seeing improved order books. Could this be finally the inflection point? I hope so, but so I did the last few months too…\nLyondellBasell (LYB) +14.5% saw a boost from rising energy and commodity prices tied to the Middle East escalation. At the same time, dividends were sliced almost 50%. Overall the market appears to like that managment decision.\n\n\nTop losers\nRobert Half (RHI) -26.4% took the hardest hit. With US job growth at its weakest in years, the outlook for this kind of company is not great. We’ll have to keep waiting for the cycle reversal.\nH&R Block (HRB) -20.9%. This is a new position in my portfolio. It’s a boring business and apparently doomed due to the AI. I disagree, but I will not be making it a large position in my portfolio quickly. I’ll probably keep buying at the dips until the position reaches max. 2% of my portfolio, probably even less.\nT. Rowe Price (TROW) -11.3% suffered as an asset manager whose revenue is tied to AUM. Equity markets falling, employment lagging… it’s the perfect combination for people to reach out for their savings held in funds. The situation will eventually improve and money will start flowing in again.\nBBVA (BBVA.MC) -9.9% and CaixaBank (CABK.MC) -7.8% were caught in the broader European selloff triggered by the Middle East crisis. BBVA announced a large buyback program. I plan to keep BBVA, but I’ll most likely close my position in CaixaBank in the coming weeks/months."
-  },
-  {
-    "objectID": "posts/2026-02/post.html#portfolio-snapshot",
-    "href": "posts/2026-02/post.html#portfolio-snapshot",
-    "title": "Portfolio Update: February 2026",
-    "section": "Portfolio snapshot",
-    "text": "Portfolio snapshot\n\nAllocation\n\n\n\nPortfolio allocation as of February 2026\n\n\n\n\nPerformance by position\n\n\n\nReturn by position\n\n\n\n\nHistorical returns (top 10 positions)\n\n\n\nHistorical return curves for top positions by cost basis"
   }
 ]
