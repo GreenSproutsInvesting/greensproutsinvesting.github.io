@@ -1,0 +1,5 @@
+---
+title: "Tools"
+---
+
+- [Rotation Analysis](tools/rotation-analysis.qmd) — Analyze dividend portfolio rotations

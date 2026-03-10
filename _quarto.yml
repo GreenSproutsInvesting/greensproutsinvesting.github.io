@@ -9,6 +9,9 @@ website:
   navbar:
     logo: logo.png
     right:
+      - text: Posts
+        href: index.qmd
+      - tools.qmd
       - about.qmd
       - icon: rss
         href: index.xml
